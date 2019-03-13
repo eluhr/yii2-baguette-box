@@ -1,0 +1,19 @@
+{
+    "name": "eluhr/yii2-baguette-box",
+    "description": "Yii2 Wrapper for feimosi/baguetteBox.js",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Elias Luhr",
+            "email": "elias.luhr@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "eluhr\\baguettebox\\": "src/"
+        }
+    },
+    "require": {
+        "bower-asset/baguettebox.js": "^1.11"
+    }
+}

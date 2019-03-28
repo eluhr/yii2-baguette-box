@@ -41,6 +41,7 @@ echo BaguetteBox::widget([
         '/path/to/image-4.jpg',
         '/path/to/image-5.jpg'
     ],
+    'items_per_row' => 4,
     'plugin_options' => [
         'noScrollbars' => true
     ],

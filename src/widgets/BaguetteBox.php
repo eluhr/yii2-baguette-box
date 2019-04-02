@@ -24,6 +24,7 @@ use yii\helpers\Json;
  * @property array $options
  * @property array $plugin_options
  * @property int|false $items_per_row
+ * @property array $responsive
  *
  * --- EXAMPLE ---
  */
@@ -59,6 +60,12 @@ class BaguetteBox extends Widget
      */
     public $items_per_row = false;
 
+    /**
+     * Enables css snippets responsive behavior.
+     * Array of key value where key is screen size in px and value is items per row at this screen size
+     */
+    public $responsive = [];
+
     public function init()
     {
         $this->options['id'] = $this->options['id'] ?? $this->id;
@@ -93,10 +100,13 @@ baguetteBox.run("#{$baguette_box_element_id}", {$baguette_box_options});
 JS
             );
 
+            // if responsive option is activated but items_per_row is not set, set it at least to 1
+            if (!empty($this->responsive) && $this->items_per_row === false) {
+                $this->items_per_row = 1;
+            }
+
             // register css for layout only if needed
             if (is_numeric($this->items_per_row) && $this->items_per_row > 0) {
-                $this->options['data-per-row'] = $this->items_per_row;
-                $width_in_percent = round(100 / $this->items_per_row,2);
                 $this->view->registerCss(<<<CSS
 #{$this->options['id']} {
     display: flex;
@@ -104,7 +114,7 @@ JS
 }
 
 #{$this->options['id']} > a {
-    width: {$width_in_percent}%;
+    width: {$this->itemWidthInPercent($this->items_per_row)}%;
 }
 
 #{$this->options['id']} > a > img {
@@ -112,7 +122,29 @@ JS
 }
 CSS
                 );
+
+                foreach ($this->responsive as $max_width => $items_per_row) {
+                    $this->view->registerCss(<<<CSS
+@media (max-width: {$max_width}px) {
+    #{$this->options['id']} > a {
+        width: {$this->itemWidthInPercent($items_per_row)}%;
+    }
+}
+CSS
+                    );
+                }
+
             }
         }
+    }
+
+    /**
+     * @param $amount
+     *
+     * @return float
+     */
+    private function itemWidthInPercent($amount)
+    {
+        return round(100 / $amount, 2);
     }
 }

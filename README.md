@@ -49,7 +49,11 @@ echo BaguetteBox::widget([
         'noScrollbars' => true
     ],
     'options' => [
-        'class' => 'gallery'
+        'class' => 'gallery',
+    ],
+    'responsive' => [
+        991 => 2,
+        768 => 1    
     ]
 ]);
 ?>

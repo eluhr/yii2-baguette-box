@@ -12,5 +12,6 @@
 use yii\helpers\Html;
 
 $image = $data[0];
+$thumbnail = $data['thumbnail'] ?? $image;
 
-echo Html::a(Html::img($image, $data['image-options'] ?? []),$image,$data['link-options'] ?? []);
+echo Html::a(Html::img($thumbnail, $data['image-options'] ?? []),$image,$data['link-options'] ?? []);

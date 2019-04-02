@@ -39,7 +39,10 @@ echo BaguetteBox::widget([
             ]
         ],
         '/path/to/image-4.jpg',
-        '/path/to/image-5.jpg'
+        [
+            '/path/to/image-6.jpg',
+            'thumbnail' => '/path/to/image-6-thumbnail.jpg'
+        ]
     ],
     'items_per_row' => 4,
     'plugin_options' => [

@@ -13,6 +13,7 @@ composer require eluhr/yii2-baguette-box
 #### PHP
 
 ```php
+<?php
 use eluhr\baguettebox\widgets\BaguetteBox;
 
 echo BaguetteBox::widget([
@@ -65,8 +66,6 @@ echo BaguetteBox::widget([
 ```twig
 {{ use ('eluhr/baguettebox/widgets/BaguetteBox') }}
 
-
-
 {{ BaguetteBox_widget({
     'items' : {
         {
@@ -81,17 +80,12 @@ echo BaguetteBox::widget([
             'data-caption' : 'My caption 1'
         }
         },
-        0: '/path/to/image-2.jpg',
         {
             '/path/to/image-3.jpg',
             'link-options' : {
             'data-caption' : 'My caption 2'
-        },
-            'image-options' : {
-            'class' : 'my-class'
         }
         },
-        1: '/path/to/image-4.jpg',
         {
             '/path/to/image-6.jpg',
             'thumbnail' : '/path/to/image-6-thumbnail.jpg'

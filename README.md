@@ -71,20 +71,20 @@ echo BaguetteBox::widget([
         {
             '/path/to/image-0.jpg',
             'link-options' : {
-            'data-caption' : 'My caption 0'
-        }
+                'data-caption' : 'My caption 0'
+            }
         },
         {
             '/path/to/image-1.jpg',
             'link-options' : {
-            'data-caption' : 'My caption 1'
-        }
+                'data-caption' : 'My caption 1'
+            }
         },
         {
             '/path/to/image-3.jpg',
             'link-options' : {
-            'data-caption' : 'My caption 2'
-        }
+                'data-caption' : 'My caption 2'
+            }
         },
         {
             '/path/to/image-6.jpg',

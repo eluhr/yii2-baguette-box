@@ -18,7 +18,7 @@ use yii\web\AssetBundle;
  */
 class BaguetteBoxAssetBundle extends AssetBundle
 {
-    public $sourcePath = '@vendor/bower/baguettebox.js/dist';
+    public $sourcePath = '@bower/baguettebox.js/dist';
 
     public $js = [
         'baguetteBox.min.js'
